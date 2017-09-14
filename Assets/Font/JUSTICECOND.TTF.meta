@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 5a48c35f3f2d3a143856716ffb70c9fa
+timeCreated: 1494519947
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Justice Condensed
+  fontNames:
+  - Justice Condensed
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
