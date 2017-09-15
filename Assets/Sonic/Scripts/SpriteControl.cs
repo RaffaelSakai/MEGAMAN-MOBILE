@@ -213,7 +213,7 @@ public class SpriteControl : MonoBehaviour
                 {
                     lives--;
                     MainGame.instance.setLives(lives);
-                    transform.position = RespawnPos;
+                    DoTheRespawn();
                 }
                 else
                 { SceneManager.LoadScene("GameOver"); }
@@ -250,8 +250,7 @@ public class SpriteControl : MonoBehaviour
         {
            // gameObject.SetActive(false);
 
-            transform.position = RespawnPos;
-
+            DoTheRespawn();
             aud.PlayOneShot(clips[2]);
 
             rings = 0;
@@ -261,7 +260,8 @@ public class SpriteControl : MonoBehaviour
             {
                 lives--;
                 MainGame.instance.setLives(lives);
-                transform.position = RespawnPos;
+
+                DoTheRespawn();
             }
             else
             { SceneManager.LoadScene("GameOver"); }
@@ -446,6 +446,11 @@ public class SpriteControl : MonoBehaviour
         boringIndex = 0;
 
 
+    }
+
+    public void DoTheRespawn()
+    {
+        transform.position = RespawnPos;
     }
 
 }

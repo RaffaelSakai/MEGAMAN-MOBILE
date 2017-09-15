@@ -9,27 +9,16 @@ public class Control : MonoBehaviour
 
     float InputHorizontal;
 
-    // Use this for initialization
-    void Start()
-    {
-
-
-
-
-
-
-    }
-
     // Update is called once per frame
     void Update()
     {
 
-        //move.SetVelocity(Input.GetAxis("Horizontal"));
+        move.SetVelocity(Input.GetAxis("Horizontal"));
         move.SetVelocity(InputHorizontal);
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    move.SetJump();
-        //}
+        if (Input.GetButtonDown("Jump"))
+        {
+            move.SetJump();
+        }
     }
 
 

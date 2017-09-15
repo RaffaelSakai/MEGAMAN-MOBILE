@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class FallingBlock : MonoBehaviour
 {
-    [SerializeField]
+   [SerializeField]
     Rigidbody2D rdb;
 
 
-    // Use this for initialization
+  
     void Start()
     {
-        
+        rdb = GetComponent<Rigidbody2D>();
+        //rdb.constraints = RigidbodyConstraints2D.FreezeRotation| RigidbodyConstraints2D.FreezePositionY;
+        setRigidbodys_standStill();
     }
 
     // Update is called once per frame
@@ -25,8 +27,9 @@ public class FallingBlock : MonoBehaviour
 
         if (col.gameObject.tag == "Player")
         {
-            rdb.bodyType = RigidbodyType2D.Dynamic;
-           
+            Invoke("setRigidbodys_startFalling", 0.75f);
+            //rdb.bodyType = RigidbodyType2D.Dynamic;
+
         }
 
         if (col.gameObject.tag == "Block")
@@ -36,11 +39,16 @@ public class FallingBlock : MonoBehaviour
         }
     }
 
-   
+
+    public void setRigidbodys_standStill()
+    {
+        rdb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
+    } 
 
 
-
-
-
+    public void setRigidbodys_startFalling()
+    {
+        rdb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
 
 }
