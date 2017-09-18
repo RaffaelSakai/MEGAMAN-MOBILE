@@ -25,21 +25,21 @@ public class Control : MonoBehaviour
         if (hero.GetType() == typeof(ZeroControl))
         {
 
-            hero.SetFire(fire);
-            zerofire.setCharging(charging);
-            //hero.attacking = Input.GetMouseButtonUp(0);
+            //hero.SetFire(fire);
+            //zerofire.setCharging(charging);
+            hero.attacking = Input.GetMouseButtonUp(0);
             hero.swordAttacking = Input.GetMouseButtonUp(1);
         }
 
-        hero.SetMove(input);
+        //hero.SetMove(input);
 
-        if (podePular)
-        {
-            hero.SetJump();
-        }
+        //if (podePular)
+        //{
+        //    hero.SetJump();
+        //}
 
-        //hero.inputHorizontal = Input.GetAxisRaw("Horizontal");
-        //if (Input.GetButton("Jump")) { hero.SetJump(); }
+        hero.inputHorizontal = Input.GetAxisRaw("Horizontal");
+        if (Input.GetButton("Jump")) { hero.SetJump(); }
 
 
 

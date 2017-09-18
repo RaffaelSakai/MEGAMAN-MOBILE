@@ -18,18 +18,18 @@ public class ZeroControl : ClasseBase
     public bool onGround;
     public float valorDirecao;
     ZeroFire zeroFire;
-    [HideInInspector]
+
     public int HealthValue;
-   
+
     Transform posicaoInicial;
     Transform posicaoQueda;
-
+    [SerializeField]
     int lifeCount, itemCount;
 
 
     float contadorTiroAnimacao;
     public float contadorTiroAnimacaoLimite;
-
+    float OffsetDoRaio;
     void Awake()
     {
 
@@ -60,6 +60,7 @@ public class ZeroControl : ClasseBase
         transform.position = posicaoInicial.position;
         HealthValue = 4;
         contadorTiroAnimacao = contadorTiroAnimacaoLimite;
+        OffsetDoRaio = -0.5f;
     }
 
     int limiteMaximoVelocidadeQueda = -12;
@@ -219,6 +220,7 @@ public class ZeroControl : ClasseBase
         transform.position += Locomotion;
 
     }
+
     #region Animacoes concluidas
 
     void IdleAnimation(int SpriteSpeedChange)
@@ -400,7 +402,7 @@ public class ZeroControl : ClasseBase
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-   
+
         if (col.gameObject.CompareTag("ItemPickUp"))
         {
             itemCount++;
@@ -411,7 +413,7 @@ public class ZeroControl : ClasseBase
 
     bool CheckGround()
     {
-        Ray2D ray2d = new Ray2D(transform.position, -transform.up);
+        Ray2D ray2d = new Ray2D(transform.position + transform.right * OffsetDoRaio, -transform.up);
 
         Debug.DrawRay(ray2d.origin, ray2d.direction * valorDirecao, Color.red);
 
@@ -437,7 +439,9 @@ public class ZeroControl : ClasseBase
         }
         else if (transform.position.y <= posicaoQueda.position.y)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            transform.position = posicaoInicial.position;
+            MainGame.instance.ResetPlatforms();
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
