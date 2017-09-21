@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 677b9aea55afdc948bdee0b3328391d8
-timeCreated: 1505687614
+timeCreated: 1505943976
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,8 @@ TextureImporter:
     21300016: Level05_8
     21300018: Level05_9
     21300020: Level05_10
+    21300022: Level05_11
+    21300024: Level05_12
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -226,6 +228,32 @@ TextureImporter:
         y: 150
         width: 40
         height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Level05_11
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 151
+        width: 56
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Level05_12
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 198
+        width: 72
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

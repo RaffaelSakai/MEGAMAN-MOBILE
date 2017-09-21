@@ -33,8 +33,6 @@ public class ZeroFire : MonoBehaviour
     {
         //charging = Input.GetMouseButton(0);
 
-
-
         if (charging)
         {
             AcrescentaContador();
@@ -88,7 +86,7 @@ public class ZeroFire : MonoBehaviour
 
     void AtiraBalaEspecial()
     {
-        if (EspecialAtual == SpecialFire.Especial_2)
+        if (EspecialAtual == SpecialFire.Especial_1)
         {
             if (zeroControl.onGround)
             {
@@ -100,7 +98,7 @@ public class ZeroFire : MonoBehaviour
             }
             zeroControl.SetAudioEspecial();
         }
-        else if (EspecialAtual == SpecialFire.Especial_1)
+        else if (EspecialAtual == SpecialFire.Especial_2)
         {
             if (zeroControl.onGround)
             {
