@@ -421,7 +421,8 @@ public class ZeroControl : ClasseBase
 
         if (raycastHit2d)
         {
-            if (raycastHit2d.collider.gameObject.CompareTag("Chao"))
+            //if (raycastHit2d.collider.gameObject.CompareTag("Chao"))
+            if (!raycastHit2d.collider.isTrigger)
             {
                 return true;
             }
