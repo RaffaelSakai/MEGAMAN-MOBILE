@@ -7,7 +7,7 @@ public class PortaHabilita : MonoBehaviour
 
     SpriteRenderer sR;
     BoxCollider2D _collider2d;
-    bool inside;
+    public bool inside;
 
     void Start()
     {
@@ -47,6 +47,7 @@ public class PortaHabilita : MonoBehaviour
         tmp.a = 1f;
         sR.color = tmp;
         _collider2d.enabled = true;
+        inside = true;
     }
 
     Transform playerTransform

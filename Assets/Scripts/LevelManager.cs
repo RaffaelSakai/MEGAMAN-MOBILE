@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
 

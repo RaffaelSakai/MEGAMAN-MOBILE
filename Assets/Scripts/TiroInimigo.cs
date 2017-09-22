@@ -20,7 +20,11 @@ public class TiroInimigo : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<ZeroControl>())
             {
+                //ZeroControl zero = collision.gameObject.GetComponent<ZeroControl>();
+                //print(zero);
                 collision.gameObject.GetComponent<ZeroControl>().HealthValue -= dano;
+                collision.gameObject.GetComponent<ZeroFire>().gotHit = true;
+
             }
             Destroy(gameObject);
         }

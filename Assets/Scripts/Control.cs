@@ -13,6 +13,7 @@ public class Control : MonoBehaviour
     float input;
     bool podePular, fire, charging;
 
+  
     void Start()
     {
         hero = GetComponent<ClasseBase>();

@@ -30,6 +30,7 @@ public class ZeroControl : ClasseBase
     float contadorTiroAnimacao;
     public float contadorTiroAnimacaoLimite;
     float OffsetDoRaio;
+
     void Awake()
     {
 
@@ -58,7 +59,7 @@ public class ZeroControl : ClasseBase
         lifeCount = 3;
         posicaoQueda = GameObject.Find("posicao de queda").transform;
         transform.position = posicaoInicial.position;
-        HealthValue = 4;
+        HealthValue = 10;
         contadorTiroAnimacao = contadorTiroAnimacaoLimite;
         OffsetDoRaio = -0.5f;
     }
@@ -395,13 +396,20 @@ public class ZeroControl : ClasseBase
         if (col.gameObject.CompareTag("Spike"))
         {
             //lifeCount--;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            transform.position = posicaoInicial.position;
+            MainGame.instance.ResetPlatforms();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject.name =="ColliderHit")
+        {
+            HealthValue -= 3;
+            GetComponent<ZeroFire>().gotHit = true;
+        }
 
         if (col.gameObject.CompareTag("ItemPickUp"))
         {
@@ -475,4 +483,5 @@ public class ZeroControl : ClasseBase
     {
         attacking = attack;
     }
+
 }

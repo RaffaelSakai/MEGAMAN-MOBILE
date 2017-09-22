@@ -118,12 +118,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    if (col.gameObject.GetComponent<BulletBaseClass>())
-    //    {
-    //        healthvalue -= col.gameObject.GetComponent<BulletBaseClass>().dano;
-    //    }
-    //}
+    
 
 }

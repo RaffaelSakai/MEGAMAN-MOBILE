@@ -49,10 +49,10 @@ public class BalaPadrao : BulletBaseClass
     {
        if (!collision.GetComponent<Collider2D>().isTrigger && collision.gameObject.tag != "Player")
         {
-            if (collision.gameObject.GetComponent<ZeroControl>())
-            {
-                collision.gameObject.GetComponent<ZeroControl>().HealthValue -= dano;
-            }
+            //if (collision.gameObject.GetComponent<ZeroControl>())
+            //{
+            //    collision.gameObject.GetComponent<ZeroControl>().HealthValue -= dano;
+            //}
             colidiu = true;
         }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 enum SpecialFire { Especial_1, Especial_2 }
 public class ZeroFire : MonoBehaviour
 {
-
+    SpriteRenderer SR;
     SpecialFire EspecialAtual;
     ZeroControl zeroControl;
     [SerializeField]
@@ -15,6 +15,12 @@ public class ZeroFire : MonoBehaviour
     float valorDoTiro;
     public bool charged, charging;
 
+    [SerializeField]
+    Color[] _colors;
+
+    public bool gotHit;
+
+    public float velocidadeTrocaCor;
     void Awake()
     {
         zeroControl = GetComponent<ZeroControl>();
@@ -27,11 +33,12 @@ public class ZeroFire : MonoBehaviour
         contadorTiro = 0;
         valorDoTiro = 0;
         EspecialAtual = SpecialFire.Especial_1;
+        SR = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        //charging = Input.GetMouseButton(0);
+        charging = Input.GetMouseButton(0);
 
         if (charging)
         {
@@ -43,6 +50,7 @@ public class ZeroFire : MonoBehaviour
             else
             {
                 charged = true;
+
             }
         }
         if (zeroControl.attacking)
@@ -61,9 +69,36 @@ public class ZeroFire : MonoBehaviour
             contadorTiro = 0;
         }
 
-
+        ChargingSwitchColors();
         ContagemDotiroEspecial();
 
+        if (gotHit)
+        {
+            SetDamage();
+            //teste = false;
+        }
+
+    }
+
+    void ChargingSwitchColors()
+    {
+        if (charged)
+        {
+            SomaValorColor();
+        }
+        else
+        {
+            soma = 0;
+            SR.color = _colors[0];
+        }
+    }
+    float soma = 0;
+
+    void SomaValorColor()
+    {
+        soma += Time.deltaTime * velocidadeTrocaCor;
+        soma = soma > _colors.Length ? 0 : soma;
+        SR.color = _colors[(int)soma];
     }
 
     public void setCharging(bool charge)
@@ -153,4 +188,15 @@ public class ZeroFire : MonoBehaviour
         }
     }
 
+    public void SetDamage()
+    {
+        SR.color = _colors[1];
+        Invoke("ResetColor", 0.5f);
+    }
+
+    void ResetColor()
+    {
+        SR.color = _colors[0];
+        gotHit = false;
+    }
 }

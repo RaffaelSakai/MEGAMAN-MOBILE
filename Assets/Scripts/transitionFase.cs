@@ -18,7 +18,10 @@ public class transitionFase : MonoBehaviour
 
     void TrocaCena()
     {
-        SceneManager.LoadScene(path);
+        PersistentData.LevelsPassed += 1;
+        LevelManager.esteLevelManager.LoadLevel("LevelSelection");
+        // SceneManager.LoadScene(path);
+
     }
 
 }
