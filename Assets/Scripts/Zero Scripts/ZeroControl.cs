@@ -333,7 +333,7 @@ public class ZeroControl : ClasseBase
 
             yield return null;
         }
-        print("teste");
+        //print("teste");
     }
 
     #endregion
@@ -385,8 +385,9 @@ public class ZeroControl : ClasseBase
     {
         if (!jump && onGround)
         {
-            jumpForce = jumpForceMax;
             jump = true;
+            jumpForce = jumpForceMax;
+
         }
 
     }
@@ -405,7 +406,7 @@ public class ZeroControl : ClasseBase
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name =="ColliderHit")
+        if (col.gameObject.name == "ColliderHit")
         {
             HealthValue -= 3;
             GetComponent<ZeroFire>().gotHit = true;

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class transitionFase : MonoBehaviour
 {
-    public string path;
+    //public string path;
 
     void OnCollisionStay2D(Collision2D collision)
     {

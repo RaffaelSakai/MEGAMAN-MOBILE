@@ -10,6 +10,7 @@ public class ZeroFire : MonoBehaviour
     ZeroControl zeroControl;
     [SerializeField]
     GameObject tiro, tiroEspecial_1, tiroEspecial_2;
+    [SerializeField]
     Transform saidaDoProjetilNoChao, saidaDoProjetilNoAr;
     public float contadorTiro, limiarDoContador;
     float valorDoTiro;
@@ -24,7 +25,6 @@ public class ZeroFire : MonoBehaviour
     void Awake()
     {
         zeroControl = GetComponent<ZeroControl>();
-        //tiro = Resources.Load<GameObject>("Zero/Projeteis/TiroPadraoProjetil");
         tiro = carregaGameObject("Zero/Projeteis/TiroPadraoProjetil");
         tiroEspecial_1 = carregaGameObject("Zero/Projeteis/TiroEspecial1");
         tiroEspecial_2 = carregaGameObject("Zero/Projeteis/TiroEspecial2");
@@ -38,7 +38,7 @@ public class ZeroFire : MonoBehaviour
 
     void Update()
     {
-        charging = Input.GetMouseButton(0);
+        //charging = Input.GetMouseButton(0);
 
         if (charging)
         {
@@ -191,7 +191,7 @@ public class ZeroFire : MonoBehaviour
     public void SetDamage()
     {
         SR.color = _colors[1];
-        Invoke("ResetColor", 0.5f);
+        Invoke("ResetColor", 0.2f);
     }
 
     void ResetColor()

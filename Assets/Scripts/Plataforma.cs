@@ -10,9 +10,13 @@ public class Plataforma : MonoBehaviour
     float contador;
     bool colidiu;
     Vector3 posicaoInicial;
-    // Use this for initialization
+    SpriteRenderer sR;
+    Collider2D _colider;
+
     void Start()
     {
+        _colider = GetComponent<Collider2D>();
+        sR = GetComponent<SpriteRenderer>();
         posicaoInicial = transform.position;
         _rigidBody = GetComponent<Rigidbody2D>();
         _rigidBody.gravityScale = 5;
@@ -21,7 +25,7 @@ public class Plataforma : MonoBehaviour
         colidiu = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (colidiu)
@@ -37,21 +41,42 @@ public class Plataforma : MonoBehaviour
 
     void SetConstrain2()
     {
-        _rigidBody.constraints =  RigidbodyConstraints2D.FreezeRotation;
+        _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
     }
 
 
     void SetConstrain1()
     {
         _rigidBody.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        Color tmp = sR.color;
+        tmp.a = 1f;
+        sR.color = tmp;
+        _colider.enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            colidiu = true;
+            Transform posicaoRelativa = collision.gameObject.transform.FindChild("AlvoZero");
+            Vector3 calculoDiferenca = posicaoRelativa.position - transform.position;
+
+            if (calculoDiferenca.y > 0)
+            {
+                colidiu = true;
+            }
+             
         }
+
+        if (!collision.gameObject.CompareTag("Player") && !collision.collider.isTrigger)
+        {
+            Color tmp = sR.color;
+            tmp.a = 0f;
+            sR.color = tmp;
+            _colider.enabled = false;
+        }
+
     }
 
     private void StartCounting()

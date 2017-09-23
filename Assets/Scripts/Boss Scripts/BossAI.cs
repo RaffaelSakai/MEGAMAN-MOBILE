@@ -9,6 +9,7 @@ public class BossAI : MonoBehaviour
 
     public BossState EstadoBoss;
 
+    Collider2D _collider;
     [SerializeField]
     Sprite[] IdleArray, WalkArray, PunchArray;
     public int SpeedChangeIdle, speedChangeWalk, SpeedChangePunch;
@@ -24,7 +25,7 @@ public class BossAI : MonoBehaviour
     public bool canFire;
 
     public int healthValue;
-    bool alive;
+    public bool alive;
 
     [SerializeField]
     Color regularColor, damageColor;
@@ -54,16 +55,23 @@ public class BossAI : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        Color tmp = sR.color;
+        //tmp.a = 0f;
+        tmp.a = Mathf.Lerp(tmp.a, 0f, Time.deltaTime);
+        sR.color = tmp;
+        _collider.enabled = false;
+       // Destroy(gameObject);
 
     }
 
     void AIStart()
     {
+        _collider = GetComponent<Collider2D>();
         sR = GetComponent<SpriteRenderer>();
         EstadoBoss = BossState.IdleState;
         SetSprites();
         Index = 0;
+        alive = true;
         //valorAleatorio = Random.Range(0, 2);
         valorAleatorio = 1;
         setHitBox();
@@ -74,11 +82,15 @@ public class BossAI : MonoBehaviour
     {
         if (Encounter)
         {
-            Vector3 direcao = transform.position - PlayerTransform.position;
-            CheckForDistance(direcao);
-            SwitchState();
-            UpdateRandomCount();
-            ColliderControl();
+            alive = healthValue > 0 ? true : false;
+            if (alive)
+            {
+                Vector3 direcao = transform.position - PlayerTransform.position;
+                CheckForDistance(direcao);
+                SwitchState();
+                UpdateRandomCount();
+                ColliderControl();
+            }
         }
     }
 

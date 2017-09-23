@@ -13,34 +13,33 @@ public class Control : MonoBehaviour
     float input;
     bool podePular, fire, charging;
 
-  
+
     void Start()
     {
-        hero = GetComponent<ClasseBase>();
+        hero = GetComponent<ZeroControl>();
         zerofire = GetComponent<ZeroFire>();
     }
 
 
     void Update()
     {
-        if (hero.GetType() == typeof(ZeroControl))
-        {
 
-            //hero.SetFire(fire);
-            //zerofire.setCharging(charging);
-            hero.attacking = Input.GetMouseButtonUp(0);
-            hero.swordAttacking = Input.GetMouseButtonUp(1);
+
+        hero.SetFire(fire);
+        zerofire.setCharging(charging);
+        //hero.attacking = Input.GetMouseButtonUp(0);
+        //    hero.swordAttacking = Input.GetMouseButtonUp(1);
+
+
+        hero.SetMove(input);
+
+        if (podePular)
+        {
+            hero.SetJump();
         }
 
-        //hero.SetMove(input);
-
-        //if (podePular)
-        //{
-        //    hero.SetJump();
-        //}
-
-        hero.inputHorizontal = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButton("Jump")) { hero.SetJump(); }
+        //hero.inputHorizontal = Input.GetAxisRaw("Horizontal");
+        //if (Input.GetButton("Jump")){hero.SetJump();}
 
 
 
@@ -64,12 +63,16 @@ public class Control : MonoBehaviour
 
     public void Jumping()
     {
+       
         podePular = true;
+     
     }
 
     public void NotJumping()
     {
+      
         podePular = false;
+     
     }
 
     public void setFireFalse()

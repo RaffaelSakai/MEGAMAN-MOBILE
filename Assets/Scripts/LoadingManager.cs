@@ -25,7 +25,7 @@ public class LoadingManager : MonoBehaviour
 
         if (percentualNum > 0.89f)
         {
-            print("Done");
+            //print("Done");
             load.allowSceneActivation = true;
         }
 
