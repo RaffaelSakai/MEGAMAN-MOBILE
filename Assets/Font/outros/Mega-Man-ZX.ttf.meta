@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 688a3c7bf208fe8419069d96b853d914
+timeCreated: 1506458839
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mega Man ZX
+  fontNames:
+  - Mega Man ZX
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

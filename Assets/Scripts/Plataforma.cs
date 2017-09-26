@@ -59,7 +59,7 @@ public class Plataforma : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Transform posicaoRelativa = collision.gameObject.transform.FindChild("AlvoZero");
+            Transform posicaoRelativa = collision.gameObject.transform.Find("AlvoZero");
             Vector3 calculoDiferenca = posicaoRelativa.position - transform.position;
 
             if (calculoDiferenca.y > 0)

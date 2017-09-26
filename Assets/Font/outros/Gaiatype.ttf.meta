@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c122533d1c2f9c54cb1ded633ca9d5fd
+timeCreated: 1506458854
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Gaiatype
+  fontNames:
+  - Gaiatype
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
