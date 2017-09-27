@@ -31,7 +31,7 @@ public class Teste : MonoBehaviour
 
         for (int i = 0; i < 129; i++)
         {
-            Animacoes.Add(Resources.Load<Sprite>("frame_" + i.ToString("000") + "_delay-0.04s"));
+            Animacoes.Add(Resources.Load<Sprite>("FramesBackground/frame_" + i.ToString("000") + "_delay-0.04s"));
         }
 
         return Animacoes;
