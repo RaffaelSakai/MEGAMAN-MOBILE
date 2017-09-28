@@ -188,6 +188,7 @@ public class ZeroControl : ClasseBase
         if (HealthValue <= 0)
         {
             lifeCount--;
+            HealthValue = 10;
         }
 
         retornaAoInicio();
@@ -406,6 +407,8 @@ public class ZeroControl : ClasseBase
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        
+
         if (col.gameObject.name == "ColliderHit")
         {
             HealthValue -= 3;

@@ -28,15 +28,14 @@ public class Control : MonoBehaviour
         hero.SetFire(fire);
         zerofire.setCharging(charging);
         //hero.attacking = Input.GetMouseButtonUp(0);
-        //    hero.swordAttacking = Input.GetMouseButtonUp(1);
-
-
-        hero.SetMove(input);
-
+        //hero.swordAttacking = Input.GetMouseButtonUp(1);
         if (podePular)
         {
             hero.SetJump();
         }
+
+        hero.SetMove(input);
+
 
         //hero.inputHorizontal = Input.GetAxisRaw("Horizontal");
         //if (Input.GetButton("Jump")){hero.SetJump();}
@@ -45,6 +44,15 @@ public class Control : MonoBehaviour
 
         //spriteControl.SetVelocity(Input.GetAxis("Horizontal"));
     }
+
+    //private void FixedUpdate()
+    //{
+
+    //    if (podePular)
+    //    {
+    //        hero.SetJump();
+    //    }
+    //}
 
     public void MoveRight()
     {
@@ -63,16 +71,16 @@ public class Control : MonoBehaviour
 
     public void Jumping()
     {
-       
+
         podePular = true;
-     
+
     }
 
     public void NotJumping()
     {
-      
+
         podePular = false;
-     
+
     }
 
     public void setFireFalse()

@@ -82,7 +82,7 @@ public class Plataforma : MonoBehaviour
     private void StartCounting()
     {
 
-        if (contador < 1f)
+        if (contador < 2f)
         {
             contador += Time.deltaTime;
         }

@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     {
         enemyRenderer = GetComponent<SpriteRenderer>();
         spritesAnimados = SpriteManager.CarregaSprite(path);
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.Find("AlvoZero").transform;
 
     }
 
